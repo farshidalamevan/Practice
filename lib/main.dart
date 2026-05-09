@@ -24,8 +24,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contacts'),
-        leading: Icon(Icons.phone),
+        title: Text('Feed'),
+        leading: Icon(Icons.dynamic_feed),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
         titleTextStyle: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 24,
@@ -33,20 +34,70 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.yellow,
       ),
-      body: ListView.builder(
-        itemCount: 8,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: CircleAvatar(child: Text('${index + 1}')),
-            title: Text(
-              'Contact ${index + 1}',
-              style: TextStyle(fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.person),
+                Text('Farshid Alam Evan'),
+                TextButton(
+                  onPressed: () {
+                    print('Followed');
+                  },
+                  child: Text('Follow'),
+                ),
+              ],
             ),
-            subtitle: Text('Tap to call'),
-            trailing: Icon(Icons.phone),
-            onTap: () => print('Calling Contact ${index + 1}'),
-          );
-        },
+            Divider(thickness: 5),
+            ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 1'),
+                  subtitle: Text('123456'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 2'),
+                  subtitle: Text('234567'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 3'),
+                  subtitle: Text('345678'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 4'),
+                  subtitle: Text('456789'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 5'),
+                  subtitle: Text('12344256'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text('Person 6'),
+                  subtitle: Text('44123456'),
+                  trailing: TextButton(onPressed: () {}, child: Text('See More')),
+                ),
+
+
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
