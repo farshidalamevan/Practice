@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/photo_grid.dart';
-
+import 'package:untitled/styled_container.dart';
 
 void main() {
   runApp(PracticeApp());
@@ -14,7 +13,7 @@ class PracticeApp extends StatelessWidget {
     return MaterialApp(
       title: 'Practice App',
       debugShowCheckedModeBanner: false,
-      home: PhotoGrid(),
+      home: StyledContainer(),
     );
   }
 }
