@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/styled_container.dart';
+import 'login_form.dart';
 
 void main() {
   runApp(PracticeApp());
@@ -13,7 +13,7 @@ class PracticeApp extends StatelessWidget {
     return MaterialApp(
       title: 'Practice App',
       debugShowCheckedModeBanner: false,
-      home: StyledContainer(),
+      home: LoginForm(),
     );
   }
 }
