@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/photo_grid.dart';
 
-import 'contact_list.dart';
 
 void main() {
   runApp(PracticeApp());
@@ -14,7 +14,7 @@ class PracticeApp extends StatelessWidget {
     return MaterialApp(
       title: 'Practice App',
       debugShowCheckedModeBanner: false,
-      home: ContactList(),
+      home: PhotoGrid(),
     );
   }
 }
