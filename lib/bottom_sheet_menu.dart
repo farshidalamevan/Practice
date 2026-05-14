@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// BottomSheet , ListTile , FloatingActionButton
-
-void main() {
-  runApp(PracticeApp());
-}
-
-class PracticeApp extends StatelessWidget {
-  const PracticeApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Practice App',
-      debugShowCheckedModeBanner: false,
-      home: BottomSheetMenu(),
-    );
-  }
-}
+// void main() {
+//   runApp(PracticeApp());
+// }
+//
+// class PracticeApp extends StatelessWidget {
+//   const PracticeApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Practice App',
+//       debugShowCheckedModeBanner: false,
+//       home: BottomSheetMenu(),
+//     );
+//   }
+// }
 
 class BottomSheetMenu extends StatelessWidget {
   const BottomSheetMenu({super.key});
