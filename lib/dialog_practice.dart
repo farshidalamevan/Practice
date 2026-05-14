@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Login Form with Custom Widget , Dialog , ListTile
 
 // void main() {
 //   runApp(PracticeApp());
@@ -34,6 +35,7 @@ class DialogPractice extends StatelessWidget {
           color: Colors.black,
         ),
       ),
+
       body: ListView(
         children: [
           Center(
@@ -42,181 +44,75 @@ class DialogPractice extends StatelessWidget {
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
           ),
-          Card(
-            child: ListTile(
-              title: Text(
-                'Contact 1',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text('123456'),
-              leading: CircleAvatar(
-                backgroundColor: Colors.black12,
-                child: Icon(Icons.phone),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    barrierColor: Colors.white60,
-
-                    builder: (ctx) {
-                      return AlertDialog(
-                        backgroundColor: Colors.blueGrey.shade200,
-
-                        title: Text('Are you sure?'),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              print('Item deleted!');
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Delete',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Icon(Icons.delete),
-              ),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text(
-                'Contact 2',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text('456789'),
-              leading: CircleAvatar(
-                backgroundColor: Colors.black12,
-                child: Icon(Icons.phone),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    barrierColor: Colors.white60,
-
-                    builder: (ctx) {
-                      return AlertDialog(
-                        backgroundColor: Colors.blueGrey.shade200,
-
-                        title: Text('Are you sure?'),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              print('Item deleted!');
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Delete',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Icon(Icons.delete),
-              ),
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text(
-                'Contact 3',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text('987321'),
-              leading: CircleAvatar(
-                backgroundColor: Colors.black12,
-                child: Icon(Icons.phone),
-              ),
-              trailing: IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    barrierColor: Colors.white60,
-
-                    builder: (ctx) {
-                      return AlertDialog(
-                        backgroundColor: Colors.blueGrey.shade200,
-
-                        title: Text('Are you sure?'),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Cancel',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              print('Item deleted!');
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'Delete',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                icon: Icon(Icons.delete),
-              ),
-            ),
-          ),
+          ContactItem(name: 'Araf', subtitle: '123456'),
+          ContactItem(name: 'Omi', subtitle: '456789'),
+          ContactItem(name: 'Azim', subtitle: '789456'),
+          ContactItem(name: 'Dipto', subtitle: '963852'),
+          ContactItem(name: 'Yeasin', subtitle: '563852'),
         ],
+      ),
+    );
+  }
+}
+
+class ContactItem extends StatelessWidget {
+  const ContactItem({super.key, required this.name, required this.subtitle});
+
+  final String name;
+  final String subtitle;
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: Colors.blueGrey.shade200,
+          title: Text('Delete $name?'),
+          content: Text(
+            'This will permanently delete $name from your contacts.',
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Cancel', style: TextStyle(color: Colors.white)),
+            ),
+            TextButton(
+              onPressed: () {
+                print('$name deleted!');
+                Navigator.pop(context);
+              },
+              child: Text('Delete', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(subtitle),
+        leading: CircleAvatar(
+          backgroundColor: Colors.black12,
+          child: Icon(Icons.phone),
+        ),
+        trailing: IconButton(
+          onPressed: () {
+            _showDialog(context);
+          },
+          icon: Icon(Icons.delete),
+        ),
       ),
     );
   }
