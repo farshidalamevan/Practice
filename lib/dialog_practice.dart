@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Login Form with Custom Widget , Dialog , ListTile
+/// Dialog with Custom Widget , Dialog , ListTile
 
 // void main() {
 //   runApp(PracticeApp());
