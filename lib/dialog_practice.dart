@@ -44,7 +44,7 @@ class DialogPractice extends StatelessWidget {
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
           ),
-          ContactItem(name: 'Araf', subtitle: '123456'),
+          ContactItem(name: 'Araf', subtitle: '1238456'),
           ContactItem(name: 'Omi', subtitle: '456789'),
           ContactItem(name: 'Azim', subtitle: '789456'),
           ContactItem(name: 'Dipto', subtitle: '963852'),
