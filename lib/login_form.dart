@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+/// TextField
 
 // import 'package:flutter/material.dart';
 // import 'login_form.dart';
@@ -22,12 +22,12 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
-
 class LoginForm extends StatelessWidget {
   LoginForm({super.key});
 
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,22 +54,33 @@ class LoginForm extends StatelessWidget {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Enter your email',
+                labelText: 'Email',
                 hintText: 'name@email.com',
                 prefixIcon: Icon(Icons.email_outlined),
                 border: OutlineInputBorder(),
                 filled: true,
                 fillColor: Colors.grey.shade200,
-                // helper: Text('Enter your email')
+                // helper: Text('Enter your email'),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.green, width: 3),
+                ),
+                // disabledBorder: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(16),
+                //   borderSide: BorderSide(
+                //     color: Colors.blueAccent,
+                //     width: 5
+                //   )
+                // )
               ),
             ),
             SizedBox(height: 20),
             TextField(
               keyboardType: TextInputType.text,
-              controller: _passController,
+              controller: passController,
               decoration: InputDecoration(
-                labelText: 'Enter your password',
-                hintText: 'password',
+                labelText: 'Password',
+                hintText: 'Enter your password',
                 prefixIcon: Icon(Icons.password),
                 border: OutlineInputBorder(),
                 filled: true,
@@ -77,11 +88,53 @@ class LoginForm extends StatelessWidget {
               ),
               obscureText: true,
             ),
+            SizedBox(height: 20),
+            TextField(
+              controller: descriptionController,
+              maxLines: 4,
+              maxLength: 200,
+              // onChanged: (String value){
+              //   print(value);
+              //
+              // },
+              onTap: () {
+                print('Tapped on Descriptions');
+              },
+              decoration: InputDecoration(
+                labelText: 'Description',
+                alignLabelWithHint: true,
+                hintText: 'Enter your Description',
+                prefixIcon: Padding(
+                  padding: EdgeInsets.only(bottom: 70),
+                  child: Icon(Icons.description_outlined),
+                ),
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.grey.shade200,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.green, width: 3),
+                ),
+                // disabledBorder: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(16),
+                //   borderSide: BorderSide(
+                //     color: Colors.blueAccent,
+                //     width: 5
+                //   )
+                // )
+              ),
+            ),
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
                 print(
-                  "Email: ${emailController.text}\nPassword: ${_passController.text} ");},
+                  "Email: ${emailController.text}\nPassword: ${passController.text}\nDescription: ${descriptionController.text}",
+                );
+                // emailController.text = 'Clear';
+                emailController.clear();
+                passController.clear();
+                descriptionController.clear();
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
