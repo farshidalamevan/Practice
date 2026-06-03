@@ -94,6 +94,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       Text('Enter your password'),
                       TextFormField(
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Password is required';
@@ -114,6 +115,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       Text('Re-Enter your password'),
                       TextFormField(
+                        obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Password is required';
