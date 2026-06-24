@@ -48,16 +48,19 @@ class ProfileCard extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      right: 60,
                       top: 120,
-                      child: Text(
-                        'Farshid Evan',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: .w800,
-                          fontStyle: FontStyle.italic,
-                          letterSpacing: 2,
+                      right: 0,
+                      left: 0,
+                      child: Center(
+                        child: Text(
+                          'Farshid Evan',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: .w800,
+                            fontStyle: FontStyle.italic,
+                            letterSpacing: 2,
+                          ),
                         ),
                       ),
                     ),
